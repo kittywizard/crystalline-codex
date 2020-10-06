@@ -61,26 +61,28 @@ function generateStats(name, age) {
         }
     }
 
-    //we've got an array with a bunch of appropriately named 
-    console.log(statArr);
     //call function to display submitted info
     displayInfo(name, age);
 
     //display all the stats on page
 
-    // statArr.forEach(element => {
-    //     //create element
-    //     let newStat = document.createElement('div');
+    //create an element to display all of this
+    let statDisplay = document.createElement('div');
+    results.appendChild(statDisplay);
 
-    //     //set content to element
-    //     newStat.textContent = element;
+    //cycle through each stat and display it
+    statArr.forEach(element => {
 
-    //     //add styles
-    //     newStat.classList.add('stat');
+        //create element
+        let newStat = document.createElement('div');
 
-    //     //append child
-    //     statDisplay.appendChild(newStat);
-    // });
+        //set content to element
+        newStat.textContent = element.name;
+        newStat.classList.add('stat');
+
+        //append child
+        statDisplay.appendChild(newStat);
+    });
 }
 
 //write another function??
