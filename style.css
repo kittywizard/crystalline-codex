@@ -11,12 +11,21 @@ body {
     flex-direction: column;
 }
 
+.results {
+    display: none;
+}
+
 header {
     text-align: center;
 }
 
 h1 {
     font-family: 'Berkshire Swash', sans-serif;
+}
+
+.character {
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 /* links */ 

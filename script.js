@@ -2,6 +2,7 @@ let statArr = [];
 let min = 9;
 let max = 15;
 
+let results = document.querySelector(".results");
 let submission = document.getElementById("form");
 
 // form 101
@@ -13,26 +14,43 @@ submission.addEventListener('submit', event => {
     let newData = new FormData(event.target);
     let name = newData.get('name');
     let age = newData.get('age');
+    
+    submission.style.display = "none";
     generateStats(name, age);
 
     event.preventDefault();
 });
 
 function generateStats(name, age) {
-    //need to generate random numbers five ? times
+
     for(let i = 0; i < 6; i++) {
         randomNum(min, max);
         statArr.push(random);
     }
 
-    console.log(statArr);
+    //have a div with a id of results, in whic we can place the created elements into! it will be the parent
+    //need to display all the stats on screen.  
 
-   //store all the numbers in an array
+    let nameDisplay = document.createElement('div');
+    let ageDisplay = document.createElement('div');
 
-   //need to check all of them  - for each
+    nameDisplay.textContent = name;
+    ageDisplay.textContent = age;
 
-   //if 
- 
+    nameDisplay.classList.add('character');
+    ageDisplay.classList.add('character');
+    
+    results.style.display = 'block';
+    results.appendChild(nameDisplay);
+    results.appendChild(ageDisplay);
+
+    //display all the stats on page
+
+    //create a loop for each step of the array - foreach?
+    //then need to create an element
+    //text content set to statArr[i] and so on
+    //append to a new div? 
+    document.createElement('div');
 }
 
 let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
