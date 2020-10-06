@@ -3,6 +3,7 @@ let min = 9;
 let max = 15;
 
 let results = document.querySelector(".results");
+let characterInfo = document.querySelector(".characterInfo"); //parent class
 let submission = document.getElementById("form");
 
 // form 101
@@ -115,19 +116,15 @@ function displayStats() {
 let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
 
 function displayInfo(name, age) {
-    let nameDisplay = document.createElement('div');
-    let ageDisplay = document.createElement('div');
+    let nameDisplay = document.createElement('h4');
+    let ageDisplay = document.createElement('p');
 
-    nameDisplay.textContent = name;
-    ageDisplay.textContent = age;
+    nameDisplay.textContent = `Character Name: ${name}`;
+    ageDisplay.textContent = `Character Age: ${age}`;
 
-    nameDisplay.classList.add('character');
-    ageDisplay.classList.add('character');
-    
+    //use innerhtml here?
+
     results.style.display = 'block';
-    results.appendChild(nameDisplay);
-    results.appendChild(ageDisplay);
-
-    let statDisplay = document.createElement('section');
-    results.appendChild(statDisplay);
+    characterInfo.appendChild(nameDisplay);
+    characterInfo.appendChild(ageDisplay);
 }
