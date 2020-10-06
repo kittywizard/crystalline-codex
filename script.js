@@ -21,16 +21,84 @@ submission.addEventListener('submit', event => {
     event.preventDefault();
 });
 
+
+class Stat {
+    constructor(name, num, modifier, total) {
+        this.name = name;
+        this.num = num;
+        this.modifier = modifier;
+        this.total = total;
+
+        //can add functions etc. 
+    }
+}
+
 function generateStats(name, age) {
 
-    for(let i = 0; i < 6; i++) {
-        randomNum(min, max);
-        statArr.push(random);
+    //loop through the number of stats, generate a unique name w/ random num for each one
+    for(let i = 0; i < 5; i++) {
+        switch(i) {
+            case 0:
+                //strength
+                createClass("strStat", "Strength");
+                break;
+            case 1:
+                //dexterity
+                createClass("dexStat", "Dexterity");
+                break;
+            case 2:
+                //stamina
+                createClass("staStat", "Stamina");
+                break;
+            case 3: 
+                //intelligence
+                createClass("intStat", "Intelligence");
+                break;
+            case 4: 
+                //wisdom
+                createClass("wisStat", "Wisdom");
+                break;
+        }
     }
 
-    //have a div with a id of results, in whic we can place the created elements into! it will be the parent
-    //need to display all the stats on screen.  
+    //we've got an array with a bunch of appropriately named 
+    console.log(statArr);
+    //call function to display submitted info
+    displayInfo(name, age);
 
+    //display all the stats on page
+
+    // statArr.forEach(element => {
+    //     //create element
+    //     let newStat = document.createElement('div');
+
+    //     //set content to element
+    //     newStat.textContent = element;
+
+    //     //add styles
+    //     newStat.classList.add('stat');
+
+    //     //append child
+    //     statDisplay.appendChild(newStat);
+    // });
+}
+
+//write another function??
+
+function createClass(stat, descriptor) {
+
+    stat = new Stat(`${descriptor}`, randomNum(min, max), 1);
+    let total = stat.num + stat.modifier;
+    stat.total = total;
+    statArr.push(stat);
+
+}
+
+
+//randomNum function
+let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
+
+function displayInfo(name, age) {
     let nameDisplay = document.createElement('div');
     let ageDisplay = document.createElement('div');
 
@@ -44,13 +112,6 @@ function generateStats(name, age) {
     results.appendChild(nameDisplay);
     results.appendChild(ageDisplay);
 
-    //display all the stats on page
-
-    //create a loop for each step of the array - foreach?
-    //then need to create an element
-    //text content set to statArr[i] and so on
-    //append to a new div? 
-    document.createElement('div');
+    let statDisplay = document.createElement('section');
+    results.appendChild(statDisplay);
 }
-
-let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
