@@ -2,9 +2,11 @@ let statArr = [];
 let min = 9;
 let max = 15;
 
-let results = document.querySelector(".results");
-let characterInfo = document.querySelector(".characterInfo"); //parent class
-let submission = document.getElementById("form");
+const results = document.querySelector(".results");
+const characterInfo = document.querySelector(".characterInfo"); //parent class
+const submission = document.getElementById("form");
+
+const resetBtn = document.getElementById('resetBtn');
 
 // form 101
 // event listener needs to be on the FORM not the button
@@ -119,10 +121,12 @@ function displayInfo(name, age) {
     let nameDisplay = document.createElement('h4');
     let ageDisplay = document.createElement('p');
 
-    nameDisplay.textContent = `Character Name: ${name}`;
-    ageDisplay.textContent = `Character Age: ${age}`;
+    //style
+    nameDisplay.classList.add('charName');
+    ageDisplay.classList.add();
 
-    //use innerhtml here?
+    nameDisplay.textContent = `Character Name: ${name}`;
+    ageDisplay.textContent = `Age: ${age}`;
 
     results.style.display = 'block';
     characterInfo.appendChild(nameDisplay);
