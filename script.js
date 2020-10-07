@@ -109,8 +109,8 @@ function displayStats(statArr) {
 
     const plusMod = document.querySelector(".plus-mod-btn");
     const minusMod = document.querySelector(".minus-mod-btn");
-    plusMod.addEventListener('click', modifier(statArr, mod));
-    minusMod.addEventListener('click', modifier(statArr, mod));
+    plusMod.addEventListener('click', () => modifier(statArr, mod));
+    minusMod.addEventListener('click', () => modifier(statArr, mod));
 }
 
 //randomNum function
@@ -133,8 +133,8 @@ function displayInfo(name, age) {
     characterInfo.appendChild(ageDisplay);
 }
 
-function modifier(arr, mod) {
-    //hopefully, this will run when the modifier buttons are hit and we can modify the stats with the allocated number of points
-    
+function modifier(statArr, mod) {
+    console.log("test");
+    //works, kind of
 }
 // need to reset the site? show all the original form / header info again
