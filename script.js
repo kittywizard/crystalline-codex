@@ -92,14 +92,12 @@ function displayStats(statArr) {
     //cycle through each stat and display it
     statArr.forEach(element => {
 
-        //create element
         let newStat = document.createElement('div');
-        //let newBtn = document.createElement('button');
         
         newStat.innerHTML = `${element.name}: 
-                            <button class="minus-mod-btn">-</button>
+                            <button class="minus-mod-btn btn">-</button>
                              ${element.num}
-                            <button class="plus-mod-btn">+</button>`;
+                            <button class="plus-mod-btn btn">+</button>`;
 
         newStat.classList.add('stat');
 
@@ -134,7 +132,12 @@ function displayInfo(name, age) {
 }
 
 function modifier(statArr, mod) {
-    console.log("test");
-    //works, kind of
+    //i think the event listener needs to fire off constantly. 
+
+    //modifier = do i generate a new number for each stat? or just pick a set, standard number? 
+
+    //
+
 }
+
 // need to reset the site? show all the original form / header info again
