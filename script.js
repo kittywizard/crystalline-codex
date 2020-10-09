@@ -7,6 +7,9 @@ const results = document.querySelector(".results");
 const characterInfo = document.querySelector(".characterInfo"); //parent class
 const submission = document.getElementById("form");
 const hidden = document.querySelector(".hideMe");
+const plusMod = document.querySelector(".plus-mod-btn");
+const minusMod = document.querySelector(".minus-mod-btn");
+
 
 const resetBtn = document.getElementById('resetBtn');
 
@@ -14,7 +17,8 @@ const resetBtn = document.getElementById('resetBtn');
 // event listener needs to be on the FORM not the button
 // then you can pull in the formdata
 // formdata is pulling from each input's NAME not an id
-
+plusMod.addEventListener('click', () => modifier(statArr, mod));
+minusMod.addEventListener('click', () => modifier(statArr, mod));
 submission.addEventListener('submit', event => {
     let newData = new FormData(event.target);
     let name = newData.get('name');
@@ -93,11 +97,12 @@ function displayStats(statArr) {
     statArr.forEach(element => {
 
         let newStat = document.createElement('div');
-        
-        newStat.innerHTML = `${element.name}: 
-                            <button class="minus-mod-btn btn">-</button>
-                             ${element.num}
-                            <button class="plus-mod-btn btn">+</button>`;
+
+        newStat.textContent = `${element.name}: ${minusMod} ${element.num} ${plusMod}`;
+        // newStat.innerHTML = `${element.name}: 
+        //                     <button class="minus-mod-btn btn">-</button>
+        //                      ${element.num}
+        //                     <button class="plus-mod-btn btn">+</button>`;
 
         newStat.classList.add('stat');
 
@@ -105,10 +110,6 @@ function displayStats(statArr) {
         statDisplay.appendChild(newStat);
     });
 
-    const plusMod = document.querySelector(".plus-mod-btn");
-    const minusMod = document.querySelector(".minus-mod-btn");
-    plusMod.addEventListener('click', () => modifier(statArr, mod));
-    minusMod.addEventListener('click', () => modifier(statArr, mod));
 }
 
 //randomNum function
@@ -132,11 +133,15 @@ function displayInfo(name, age) {
 }
 
 function modifier(statArr, mod) {
-    //i think the event listener needs to fire off constantly. 
-
     //modifier = do i generate a new number for each stat? or just pick a set, standard number? 
 
-    //
+    if(mod > 0) {
+        //if you still have the ability to modify your scores, run the event listener again
+        console.log("test");
+    } else {
+        //delete the buttons
+    
+    }
 
 }
 
