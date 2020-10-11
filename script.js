@@ -17,6 +17,7 @@ const resetBtn = document.getElementById('resetBtn');
 // event listener needs to be on the FORM not the button
 // then you can pull in the formdata
 // formdata is pulling from each input's NAME not an id
+
 plusMod.addEventListener('click', () => modifier(statArr, mod));
 minusMod.addEventListener('click', () => modifier(statArr, mod));
 submission.addEventListener('submit', event => {
@@ -90,6 +91,9 @@ function createClass(stat, descriptor) {
 
 function displayStats(statArr) {
 
+    //so the buttons work along with the event listener when the results div gets turned on above. 
+    //the problem lies somewhere in the creating and combing the existing buttons into the new information.
+    
     let statDisplay = document.createElement('div');
     results.appendChild(statDisplay);
     
@@ -97,12 +101,10 @@ function displayStats(statArr) {
     statArr.forEach(element => {
 
         let newStat = document.createElement('div');
-
-        newStat.textContent = `${element.name}: ${minusMod} ${element.num} ${plusMod}`;
-        // newStat.innerHTML = `${element.name}: 
-        //                     <button class="minus-mod-btn btn">-</button>
-        //                      ${element.num}
-        //                     <button class="plus-mod-btn btn">+</button>`;
+        console.log(newStat);
+        console.log(minusMod);
+        minusMod
+        newStat.innerHTML = `${element.name}: ${minusMod} ${element.num} ${plusMod}`;
 
         newStat.classList.add('stat');
 
