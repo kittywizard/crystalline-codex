@@ -93,6 +93,8 @@ function displayStats(statArr) {
 
     //so the buttons work along with the event listener when the results div gets turned on above. 
     //the problem lies somewhere in the creating and combing the existing buttons into the new information.
+
+    //delete the old buttons? and then recreate them so hopefully the event listener works? 
     
     let statDisplay = document.createElement('div');
     results.appendChild(statDisplay);
