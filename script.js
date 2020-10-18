@@ -3,23 +3,32 @@ let min = 9;
 let max = 15;
 let mod = 1;
 
+let newPlus;
+let newMinus;
+
+
 const results = document.querySelector(".results");
 const characterInfo = document.querySelector(".characterInfo"); //parent class
 const submission = document.getElementById("form");
 const hidden = document.querySelector(".hideMe");
-const plusMod = document.querySelector(".plus-mod-btn");
-const minusMod = document.querySelector(".minus-mod-btn");
 
+const plusMod = document.querySelectorAll(".plus");
+const minusMod = document.querySelectorAll(".minus");
+
+
+//allows the page to reload upon hitting the reload button
+//works because the button is there, just hidden
 
 const resetBtn = document.getElementById('resetBtn');
+resetBtn.addEventListener('click', () => location.reload());
 
 // form 101
 // event listener needs to be on the FORM not the button
 // then you can pull in the formdata
 // formdata is pulling from each input's NAME not an id
 
-plusMod.addEventListener('click', () => modifier(statArr, mod));
-minusMod.addEventListener('click', () => modifier(statArr, mod));
+// plusMod.addEventListener('click', () => modifier(statArr, mod));
+// minusMod.addEventListener('click', () => modifier(statArr, mod));
 submission.addEventListener('submit', event => {
     let newData = new FormData(event.target);
     let name = newData.get('name');
@@ -95,14 +104,19 @@ function displayStats(statArr) {
     //the problem lies somewhere in the creating and combing the existing buttons into the new information.
     
     let statDisplay = document.createElement('div');
-    
+
+
     //cycle through each stat and display it
     statArr.forEach(element => {
 
         let newStat = document.createElement('div');
-        let newPlus = document.createElement('button');
-        let newMinus = document.createElement('button');
+        newPlus = document.createElement('button');
+        newMinus = document.createElement('button');
         let numDisplay = document.createElement('span');
+
+        //everyone needs a unique ID KILL ME NOW
+        newPlus.id = `${element.name}PLUS`;
+        newMinus.id = `${element.name}MIN`;
 
         newStat.textContent = `${element.name}: `;
         newPlus.textContent = "+";
@@ -110,13 +124,15 @@ function displayStats(statArr) {
         numDisplay.textContent = `${element.num}`;
 
 
-        newPlus.classList.add('btn');
-        newMinus.classList.add('btn');
-
+        newPlus.classList.add('btn', 'plus');
+        newMinus.classList.add('btn', 'minus');
+    
         newStat.appendChild(newMinus);
         newStat.appendChild(numDisplay);
         newStat.appendChild(newPlus);
         results.appendChild(newStat);
+
+
     });
 
 }
@@ -143,7 +159,7 @@ function displayInfo(name, age) {
 
 function modifier(statArr, mod) {
     //modifier = do i generate a new number for each stat? or just pick a set, standard number? 
-
+    console.log("seriously is this even working??");
     if(mod > 0) {
         //if you still have the ability to modify your scores, run the event listener again
         console.log("test");
@@ -154,4 +170,3 @@ function modifier(statArr, mod) {
 
 }
 
-// need to reset the site? show all the original form / header info again
