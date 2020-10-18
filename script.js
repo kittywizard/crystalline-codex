@@ -103,11 +103,11 @@ function displayStats(statArr) {
     statArr.forEach(element => {
 
         let newStat = document.createElement('div');
-        console.log(newStat);
-        console.log(minusMod);
-        minusMod
-        newStat.innerHTML = `${element.name}: ${minusMod} ${element.num} ${plusMod}`;
+        let newPlus = document.createElement('button');
+        let newMinus = document.createElement('button');
 
+        newStat.textContent = `${element.name}: ` + newPlus + ` ${element.num} ` + newMinus;
+    
         newStat.classList.add('stat');
 
         //need to add an event listener to the new buttons
