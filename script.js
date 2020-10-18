@@ -93,11 +93,8 @@ function displayStats(statArr) {
 
     //so the buttons work along with the event listener when the results div gets turned on above. 
     //the problem lies somewhere in the creating and combing the existing buttons into the new information.
-
-    //delete the old buttons? and then recreate them so hopefully the event listener works? 
     
     let statDisplay = document.createElement('div');
-    results.appendChild(statDisplay);
     
     //cycle through each stat and display it
     statArr.forEach(element => {
@@ -105,13 +102,21 @@ function displayStats(statArr) {
         let newStat = document.createElement('div');
         let newPlus = document.createElement('button');
         let newMinus = document.createElement('button');
+        let numDisplay = document.createElement('span');
 
-        newStat.textContent = `${element.name}: ` + newPlus + ` ${element.num} ` + newMinus;
-    
-        newStat.classList.add('stat');
+        newStat.textContent = `${element.name}: `;
+        newPlus.textContent = "+";
+        newMinus.textContent = "-";
+        numDisplay.textContent = `${element.num}`;
 
-        //need to add an event listener to the new buttons
-        statDisplay.appendChild(newStat);
+
+        newPlus.classList.add('btn');
+        newMinus.classList.add('btn');
+
+        newStat.appendChild(newMinus);
+        newStat.appendChild(numDisplay);
+        newStat.appendChild(newPlus);
+        results.appendChild(newStat);
     });
 
 }
