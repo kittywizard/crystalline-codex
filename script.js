@@ -6,7 +6,6 @@ let mod = 1;
 let newPlus;
 let newMinus;
 
-
 const results = document.querySelector(".results");
 const characterInfo = document.querySelector(".characterInfo"); //parent class
 const submission = document.getElementById("form");
@@ -100,8 +99,7 @@ function createClass(stat, descriptor) {
 
 function displayStats(statArr) {
 
-    //so the buttons work along with the event listener when the results div gets turned on above. 
-    //the problem lies somewhere in the creating and combing the existing buttons into the new information.
+    //need to figure out how to get the event listener to triggle on the buttons
     
     let statDisplay = document.createElement('div');
 
@@ -131,7 +129,6 @@ function displayStats(statArr) {
         newStat.appendChild(numDisplay);
         newStat.appendChild(newPlus);
         results.appendChild(newStat);
-
 
     });
 
