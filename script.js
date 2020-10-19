@@ -11,8 +11,8 @@ const characterInfo = document.querySelector(".characterInfo"); //parent class
 const submission = document.getElementById("form");
 const hidden = document.querySelector(".hideMe");
 
-const plusMod = document.querySelectorAll(".plus");
-const minusMod = document.querySelectorAll(".minus");
+// const plusMod = document.querySelectorAll(".plus");
+// const minusMod = document.querySelectorAll(".minus");
 
 
 //allows the page to reload upon hitting the reload button
@@ -26,8 +26,6 @@ resetBtn.addEventListener('click', () => location.reload());
 // then you can pull in the formdata
 // formdata is pulling from each input's NAME not an id
 
-// plusMod.addEventListener('click', () => modifier(statArr, mod));
-// minusMod.addEventListener('click', () => modifier(statArr, mod));
 submission.addEventListener('submit', event => {
     let newData = new FormData(event.target);
     let name = newData.get('name');
@@ -39,7 +37,6 @@ submission.addEventListener('submit', event => {
 
     event.preventDefault();
 });
-
 
 class Stat {
     constructor(name, num, modifier, total) {
@@ -103,7 +100,6 @@ function displayStats(statArr) {
     
     let statDisplay = document.createElement('div');
 
-
     //cycle through each stat and display it
     statArr.forEach(element => {
 
@@ -132,6 +128,9 @@ function displayStats(statArr) {
 
     });
 
+    const STR = document.querySelector('plus');
+    console.log(STR);
+    //STR.addEventListener('click', () => modifier(statArr, mod));
 }
 
 //randomNum function
@@ -155,14 +154,14 @@ function displayInfo(name, age) {
 }
 
 function modifier(statArr, mod) {
-    //modifier = do i generate a new number for each stat? or just pick a set, standard number? 
-    console.log("seriously is this even working??");
+   //needs to determine which button was hit?
+
     if(mod > 0) {
-        //if you still have the ability to modify your scores, run the event listener again
         console.log("test");
+        //set the statArr num to the new one if plus was hit
     } else {
         //delete the buttons
-    
+        
     }
 
 }
