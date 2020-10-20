@@ -129,34 +129,34 @@ function displayStats(statArr) {
     //EVENT LISTENER HELL. TURN BACK NOW
 
     const STR = document.getElementById('StrengthPLUS');
-    STR.addEventListener('click', () => modifier(statArr, mod, true));
+    STR.addEventListener('click', () => modifier(statArr, mod, true, "str"));
 
     const DEX = document.getElementById('DexterityPLUS');
-    DEX.addEventListener('click', () => modifier(statArr, mod, true));
+    DEX.addEventListener('click', () => modifier(statArr, mod, true, "dex"));
 
     const STA = document.getElementById('StaminaPLUS');
-    STA.addEventListener('click', () => modifier(statArr, mod, true));
+    STA.addEventListener('click', () => modifier(statArr, mod, true, "sta"));
 
     const INT = document.getElementById('IntelligencePLUS');
-    INT.addEventListener('click', () => modifier(statArr, mod, true));
+    INT.addEventListener('click', () => modifier(statArr, mod, true, "int"));
 
     const WIS = document.getElementById('WisdomPLUS');
-    WIS.addEventListener('click', () => modifier(statArr, mod, true));
+    WIS.addEventListener('click', () => modifier(statArr, mod, true, "wis"));
 
     const STRmin = document.getElementById('StrengthMIN');
-    STRmin.addEventListener('click', () => modifier(statArr, mod, false));
+    STRmin.addEventListener('click', () => modifier(statArr, mod, false, "str"));
 
     const DEXmin = document.getElementById('DexterityMIN');
-    DEXmin.addEventListener('click', () => modifier(statArr, mod, false));
+    DEXmin.addEventListener('click', () => modifier(statArr, mod, false, "dex"));
 
     const STAmin = document.getElementById('StaminaMIN');
-    STAmin.addEventListener('click', () => modifier(statArr, mod, false));
+    STAmin.addEventListener('click', () => modifier(statArr, mod, false, "sta"));
 
     const INTmin = document.getElementById('IntelligenceMIN');
-    INTmin.addEventListener('click', () => modifier(statArr, mod, false));
+    INTmin.addEventListener('click', () => modifier(statArr, mod, false, "int"));
 
     const WISmin = document.getElementById('WisdomMIN');
-    WISmin.addEventListener('click', () => modifier(statArr, mod, false));
+    WISmin.addEventListener('click', () => modifier(statArr, mod, false, "wis"));
 }
 
 //randomNum function
@@ -179,14 +179,10 @@ function displayInfo(name, age) {
     characterInfo.appendChild(ageDisplay);
 }
 
-function modifier(statArr, mod, boo) {
+function modifier(statArr, mod, boo, stat) {
     //boo is for boolean
-
-    //okay so we are ready to modify
-    //come into the function with our stat classes and the amount of points we have to modify. 
-    //the boolean determines if we hit a plus or minus
-    //but wait! we need to determine which number was hit.. 
-    //sSCREAM
+    //boo determines whether it's a plus or minus hit
+    //stat determines which specific stat was hit
 
     if(boo) {
         for(let i = 0; i < statArr.length; i++) {
