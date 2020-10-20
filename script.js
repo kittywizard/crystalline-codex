@@ -95,8 +95,6 @@ function createClass(stat, descriptor) {
 }
 
 function displayStats(statArr) {
-
-    //need to figure out how to get the event listener to triggle on the buttons
     
     let statDisplay = document.createElement('div');
 
@@ -184,9 +182,17 @@ function displayInfo(name, age) {
 function modifier(statArr, mod, boo) {
     //boo is for boolean
 
+    //okay so we are ready to modify
+    //come into the function with our stat classes and the amount of points we have to modify. 
+    //the boolean determines if we hit a plus or minus
+    //but wait! we need to determine which number was hit.. 
+    //sSCREAM
+
     if(boo) {
-        //that means its a plus
-        console.log("plus!" + mod)
+        for(let i = 0; i < statArr.length; i++) {
+            console.log(statArr[i].name + ' and ' + mod);
+            mod--;
+        }
     } else {
         //minus
         console.log("minus!" + mod);
