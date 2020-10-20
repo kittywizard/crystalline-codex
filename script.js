@@ -128,9 +128,37 @@ function displayStats(statArr) {
 
     });
 
-    const STR = document.querySelector('plus');
-    console.log(STR);
-    //STR.addEventListener('click', () => modifier(statArr, mod));
+    //EVENT LISTENER HELL. TURN BACK NOW
+
+    const STR = document.getElementById('StrengthPLUS');
+    STR.addEventListener('click', () => modifier(statArr, mod, true));
+
+    const DEX = document.getElementById('DexterityPLUS');
+    DEX.addEventListener('click', () => modifier(statArr, mod, true));
+
+    const STA = document.getElementById('StaminaPLUS');
+    STA.addEventListener('click', () => modifier(statArr, mod, true));
+
+    const INT = document.getElementById('IntelligencePLUS');
+    INT.addEventListener('click', () => modifier(statArr, mod, true));
+
+    const WIS = document.getElementById('WisdomPLUS');
+    WIS.addEventListener('click', () => modifier(statArr, mod, true));
+
+    const STRmin = document.getElementById('StrengthMIN');
+    STRmin.addEventListener('click', () => modifier(statArr, mod, false));
+
+    const DEXmin = document.getElementById('DexterityMIN');
+    DEXmin.addEventListener('click', () => modifier(statArr, mod, false));
+
+    const STAmin = document.getElementById('StaminaMIN');
+    STAmin.addEventListener('click', () => modifier(statArr, mod, false));
+
+    const INTmin = document.getElementById('IntelligenceMIN');
+    INTmin.addEventListener('click', () => modifier(statArr, mod, false));
+
+    const WISmin = document.getElementById('WisdomMIN');
+    WISmin.addEventListener('click', () => modifier(statArr, mod, false));
 }
 
 //randomNum function
@@ -153,16 +181,17 @@ function displayInfo(name, age) {
     characterInfo.appendChild(ageDisplay);
 }
 
-function modifier(statArr, mod) {
-   //needs to determine which button was hit?
+function modifier(statArr, mod, boo) {
+    //boo is for boolean
 
-    if(mod > 0) {
-        console.log("test");
-        //set the statArr num to the new one if plus was hit
+    if(boo) {
+        //that means its a plus
+        console.log("plus!" + mod)
     } else {
-        //delete the buttons
-        
+        //minus
+        console.log("minus!" + mod);
     }
+
 
 }
 
