@@ -39,12 +39,12 @@ submission.addEventListener('submit', event => {
 });
 
 class Stat {
-    constructor(name, num, modifier, total) {
+    constructor(name, num, modifier, total, id) {
         this.name = name;
         this.num = num;
         this.modifier = modifier;
         this.total = total;
-
+        this.id = id;
         //can add functions etc. 
     }
 }
@@ -87,10 +87,13 @@ function generateStats(name, age) {
 
 function createClass(stat, descriptor) {
 
+    //pretty sure the STAT param is useless? lol
+
     //modifier is 0 to start
     stat = new Stat(`${descriptor}`, randomNum(min, max), 0);
 
     statArr.push(stat);
+
 
 }
 
@@ -135,28 +138,28 @@ function displayStats(statArr) {
     DEX.addEventListener('click', () => modifier(statArr, mod, true, "dex"));
 
     const STA = document.getElementById('StaminaPLUS');
-    STA.addEventListener('click', () => modifier(statArr, mod, true, "sta"));
+    STA.addEventListener('click', () => modifier(statArr, mod, true));
 
     const INT = document.getElementById('IntelligencePLUS');
-    INT.addEventListener('click', () => modifier(statArr, mod, true, "int"));
+    INT.addEventListener('click', () => modifier(statArr, mod, true));
 
     const WIS = document.getElementById('WisdomPLUS');
-    WIS.addEventListener('click', () => modifier(statArr, mod, true, "wis"));
+    WIS.addEventListener('click', () => modifier(statArr, mod, true));
 
     const STRmin = document.getElementById('StrengthMIN');
-    STRmin.addEventListener('click', () => modifier(statArr, mod, false, "str"));
+    STRmin.addEventListener('click', () => modifier(statArr, mod, false));
 
     const DEXmin = document.getElementById('DexterityMIN');
-    DEXmin.addEventListener('click', () => modifier(statArr, mod, false, "dex"));
+    DEXmin.addEventListener('click', () => modifier(statArr, mod, false));
 
     const STAmin = document.getElementById('StaminaMIN');
-    STAmin.addEventListener('click', () => modifier(statArr, mod, false, "sta"));
+    STAmin.addEventListener('click', () => modifier(statArr, mod, false));
 
     const INTmin = document.getElementById('IntelligenceMIN');
-    INTmin.addEventListener('click', () => modifier(statArr, mod, false, "int"));
+    INTmin.addEventListener('click', () => modifier(statArr, mod, false));
 
     const WISmin = document.getElementById('WisdomMIN');
-    WISmin.addEventListener('click', () => modifier(statArr, mod, false, "wis"));
+    WISmin.addEventListener('click', () => modifier(statArr, mod, false));
 }
 
 //randomNum function
@@ -179,21 +182,47 @@ function displayInfo(name, age) {
     characterInfo.appendChild(ageDisplay);
 }
 
-function modifier(statArr, mod, boo, stat) {
+function modifier(statArr, mod, boo) {
     //boo is for boolean
     //boo determines whether it's a plus or minus hit
     //stat determines which specific stat was hit
 
-    if(boo) {
-        for(let i = 0; i < statArr.length; i++) {
-            console.log(statArr[i].name + ' and ' + mod);
-            mod--;
+    console.log(statArr[0].name + ' ' + mod);  
+
+    if(mod != 0) {
+        if(boo) {
+            //if mod is over 0, we can modify numbers 
+            // run the stat Adjustment function to edit. 
+            //now we need to check the status of mod 
+            statAdjustment(true, statArr, mod);
+            console.log(statArr[0].total);
+    
+        } else {
+            statAdjustment(false, statArr, mod);
+            console.log(statArr[0].total);
         }
+
     } else {
-        //minus
-        console.log("minus!" + mod);
+        console.mod('no more modifying!');
+        //need to remove the buttons
+
     }
-
-
+ 
 }
 
+function statAdjustment(boo, statArr, mod) {
+    //one function to handle the math
+    for(let i = 0; i < statArr.length; i++) {
+        if(boo) {
+            statArr[i].total = statArr[i].num + mod;
+            mod--;
+            return;
+        } else {
+            statArr[i].total = statArr[i].num - mod;
+            mod++;
+            return;
+        }
+
+        //determine the final count of mod
+    }
+}
