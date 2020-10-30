@@ -1,3 +1,4 @@
+
 const results = document.querySelector(".results");
 const button = document.getElementById("submit");
 
@@ -9,6 +10,9 @@ function generateName() {
     .then(data => {
         //do things here
         console.log(data);
+        results.textContent = data.title;
+
     });
 
 }
+

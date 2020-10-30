@@ -183,23 +183,17 @@ function displayInfo(name, age) {
 }
 
 function modifier(statArr, mod, boo) {
-    //boo is for boolean
     //boo determines whether it's a plus or minus hit
-    //stat determines which specific stat was hit
-
-    console.log(statArr[0].name + ' ' + mod);  
-
     if(mod != 0) {
         if(boo) {
-            //if mod is over 0, we can modify numbers 
-            // run the stat Adjustment function to edit. 
-            //now we need to check the status of mod 
-            statAdjustment(true, statArr, mod);
-            console.log(statArr[0].total);
+           //need to determine which was clicked
+           //
+            
     
         } else {
             statAdjustment(false, statArr, mod);
-            console.log(statArr[0].total);
+            //console.log(statArr[0].total);
+            //need to adjust the 0 to whichever button was hit
         }
 
     } else {
