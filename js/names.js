@@ -1,12 +1,11 @@
-//generate a random number between min and max. this will be the name's length
 let minName = 4;
 let maxName = 9;
 //let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
 
-//skipping q and x lol
-let consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"];
-let vowels = ["a", "e", "i", "o", "u"];
-let alphabet = ["a", "e", "i", "o", "u", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"];
+//skipping q and x 
+const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"];
+const vowels = ["a", "e", "i", "o", "u"];
+const alphabet = ["a", "e", "i", "o", "u", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"];
 
 const regexVowels = /[aeiouy]/g;
 let name = [];
@@ -24,19 +23,18 @@ function generateName() {
         }
 
     }
-
+    //capitalize the first letter in the array before joining
+    name[0].toUpperCase();
     // combine the array into a string
-    //name[0].toUpperCase();
     let fullName = name.join('');
     console.log(fullName);
 
-    //no more than three consonants in a row
 }
 function generateVowel() {
-    name.push(vowels[randomNum(0, 4)]);
+    name.push(vowels[randomNum(0, vowels.length)]);
 }
 function generateLetters() {
-    name.push(consonants[randomNum(0, 19)]);
+    name.push(consonants[randomNum(0, consonants.length)]);
 }
 
 generateName();
@@ -70,8 +68,6 @@ let endNameChunk =
     "ida",
     "ter"
 ]
-
-// will need to mash parts together
 
 
 //capitalize the first letter and ta da!
