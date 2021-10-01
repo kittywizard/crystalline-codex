@@ -3,7 +3,7 @@ import Button from './Button';
 function Main(props) {
 return (
     <main className="container content">
-    <Button id="submit" className="btn" name="Roll?" event={generateEvent}/>
+    <Button id="submit" className="btn" name="Roll?"/>
 
     <div className="container results">
         <div className="characterInfo">
