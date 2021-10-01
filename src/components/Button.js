@@ -1,8 +1,10 @@
-function generateEvent(e) {
+function handleClick(e) {
     e.preventDefault();
-    console.log('button clicked');
+    
+    //run function to generate stats?
+    
 }
 
-const Button = (props) => <button className={props.className} id={props.id} onClick={generateEvent}>{props.name}</button>;
+const Button = (props) => <button className={props.className} id={props.id} onClick={handleClick}>{props.name}</button>;
 
 export default Button;
