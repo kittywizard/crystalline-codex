@@ -8,15 +8,14 @@ let newMinus;
 
 const results = document.querySelector(".results");
 const characterInfo = document.querySelector(".characterInfo"); //parent class
-const submission = document.getElementById("form");
 const hidden = document.querySelector(".hideMe");
+const btn = document.getElementById('submit');
 
 // const plusMod = document.querySelectorAll(".plus");
 // const minusMod = document.querySelectorAll(".minus");
 
 
 //allows the page to reload upon hitting the reload button
-//works because the button is there, just hidden
 
 const resetBtn = document.getElementById('resetBtn');
 resetBtn.addEventListener('click', () => location.reload());
@@ -26,11 +25,7 @@ resetBtn.addEventListener('click', () => location.reload());
 // then you can pull in the formdata
 // formdata is pulling from each input's NAME not an id
 
-submission.addEventListener('submit', event => {
-    let newData = new FormData(event.target);
-    let name = newData.get('name');
-    let age = newData.get('age');
-    
+submit.addEventListener('click', event => {
     hidden.style.display = "none"; //this hides the intro paragraph
     submission.style.display = "none";
     generateStats(name, age);
