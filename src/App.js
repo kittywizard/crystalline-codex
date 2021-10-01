@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="container">
+        <h1>Crystalline Codex</h1>
+        <nav>
+            <a href="https://github.com/kittywizard/crystalline-codex" className="nav-link">github</a>
+            <a href="#" className="nav-link">link</a>
+        </nav>
+    </header>
+
+    <main className="container content">
+                <button id="submit" className="btn">Roll</button>
+
+        <div className="container results">
+            <div className="characterInfo">
+            </div>
+
+            <div className="statInfo">
+            </div>
+
+            <button className="btn" id="resetBtn">Roll Again?</button>
+
+        </div>
+    </main>
     </div>
   );
 }
